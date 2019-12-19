@@ -7,10 +7,11 @@ $TrevorAC99Pages-accent: mat-palette($mat-purple);
 
 $TrevorAC99Pages-warn: mat-palette($mat-red);
 
-$TrevorAC99Pages-theme: mat-light-theme($TrevorAC99Pages-primary, $TrevorAC99Pages-accent, $TrevorAC99Pages-warn);
+$TrevorAC99Pages-theme: mat-dark-theme($TrevorAC99Pages-primary, $TrevorAC99Pages-accent, $TrevorAC99Pages-warn);
 
 @include angular-material-theme($TrevorAC99Pages-theme);
 
+//@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
