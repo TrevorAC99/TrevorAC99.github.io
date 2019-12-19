@@ -141,8 +141,15 @@
               "devServerTarget": "TrevorAC99Pages:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "branch": "master"
+          }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "TrevorAC99Pages"
 }
