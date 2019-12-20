@@ -29,6 +29,10 @@ const routes: Routes = [
     path: '',
     redirectTo: 'main',
     pathMatch: 'full'
+  },
+  {// Consider making a component specifically for this
+    path: '**',
+    redirectTo: 'main'
   }
 ];
 
