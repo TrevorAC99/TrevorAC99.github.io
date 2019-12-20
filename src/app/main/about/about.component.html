@@ -1,1 +1,20 @@
-<p>about works!</p>
+<div class="content__wrapper">
+  <h1>About Me</h1>
+  <p>
+    {{aboutMe}}
+  </p>
+  <h1>Technologies I Use</h1>
+  <div class="technologies">
+    <mat-card *ngFor="let item of technologies" class="tech__item">
+      {{item}}
+    </mat-card>
+  </div>
+  <h1>Contact Information</h1>
+  <div class="content__body">
+    <mat-list>
+      <mat-list-item *ngFor="let item of info">
+        {{item.label}}: {{item.value}}
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>
