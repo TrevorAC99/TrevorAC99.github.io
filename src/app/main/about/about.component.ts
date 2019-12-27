@@ -18,7 +18,6 @@ export class AboutComponent implements OnInit {
   }
 
   public get contactInfo(): LabeledItem<string>[] {
-    console.log('getting contact info', this.aboutService);
     return this.aboutService.contactInfo;
   }
 
