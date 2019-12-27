@@ -10,7 +10,7 @@ export class AboutService {
     'at the University of Wisconsin Oshkosh studying Computer ' +
     'Science with an emphasis in Systems and Theory. I do web ' +
     'development work for the University, but as my emphasis ' +
-    'suggests I have a lot of interests in systems programming.';
+    'suggests I am very interested in systems programming.';
 
   public technologies: string[] = [
     'Java',
