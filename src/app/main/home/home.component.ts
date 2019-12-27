@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  public message = 'Welcome to Trevor Carlson\'s website! ' +
+    'This is a single page web app developed using ' +
+    'Angular. Angular Material is used for UI themeing. ' +
+    'Deployment is handled by Github pages.';
+
   constructor() { }
 
   ngOnInit() {
