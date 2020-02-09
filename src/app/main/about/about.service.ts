@@ -13,15 +13,15 @@ export class AboutService {
     'suggests I am very interested in systems programming.';
 
   public technologies: string[] = [
-    'Java',
+    'Rust',
+    'TypeScript',
+    'JavaScript',
+    'Angular',
     'C#',
     'ASP.NET',
     'Microsoft SQL Server',
     'MySQL',
-    'JavaScript',
-    'TypeScript',
-    'Angular',
-    'Rust'
+    'Java',
   ];
 
   public contactInfo: LabeledItem<string>[] = [
@@ -36,7 +36,7 @@ export class AboutService {
     {
       label: 'LinkedIn',
       value: 'https://www.linkedin.com/in/trevor-a-carlson/'
-    }
+    },
   ];
 
   constructor() { }
