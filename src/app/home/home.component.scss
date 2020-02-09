@@ -3,6 +3,10 @@
   flex-direction: column;
   width: 100%;
 
+  > * {
+    max-width: 1000px;
+  }
+
   h1 {
     align-self: center;
   }
@@ -16,6 +20,7 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    align-self: center;
 
     .tech__item {
       margin: 10px;
