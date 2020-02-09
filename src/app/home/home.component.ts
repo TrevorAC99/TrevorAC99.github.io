@@ -7,10 +7,17 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  public message = 'Welcome to Trevor Carlson\'s website! ' +
-    'This is a single page web app developed using ' +
-    'Angular. Angular Material is used for UI themeing. ' +
-    'Deployment is handled by Github pages.';
+  public technologies: string[] = [
+    'Rust',
+    'TypeScript',
+    'JavaScript',
+    'Angular',
+    'C#',
+    'ASP.NET',
+    'Microsoft SQL Server',
+    'MySQL',
+    'Java',
+  ];
 
   constructor() { }
 

@@ -11,14 +11,4 @@
     padding: 10px;
     align-self: center;
   }
-
-  .technologies {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-
-    .tech__item {
-      margin: 10px;
-    }
-  }
 }

@@ -21,3 +21,19 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+a:link {
+  color: lightblue;
+}
+
+a:visited {
+  color: lightgray;
+}
+
+a:hover {
+  color: lightsalmon;
+}
+
+a:active {
+  color: red;
+}

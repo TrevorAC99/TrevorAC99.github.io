@@ -1,3 +1,34 @@
 <div class="content__wrapper">
-  <p>{{message}}</p>
+  <h1>About Me</h1>
+  <p>
+    I'm a 3rd year student at the University of Wisconsin Oshkosh studying Computer Science with and emphasis in Systems and Theory.
+    My interests are in operating systems and programming languages.
+    I'm excited about <a href="https://www.rust-lang.org/">Rust</a> and the opportunities it offers for systems software.
+  </p>
+  <h1>Work Experience</h1>
+  <p>
+    I work for UWO's IT department as a web developer where I use ASP.NET MVC, SQL Server, and Angular JS.
+    We are currently transitioning to ASP.NET Core with Entity Framework Core and Angular.
+  </p>
+  <h1>Technologies I Use</h1>
+  <div class="technologies">
+    <mat-card *ngFor="let item of technologies" class="tech__item">
+      {{item}}
+    </mat-card>
+  </div>
+  <h1>Future Goals</h1>
+  <p>
+    I'd like to work on operating systems, specifically kernel development or file systems.
+    I hope to eventually work for a company that maintains open source software.
+  </p>
+  <h1>Contact Me</h1>
+  <p>
+    You can email me at <b>trevorac99@gmail.com</b>
+    or find me on <a href="https://www.linkedin.com/in/trevor-a-carlson/">LinkedIn</a>.
+    <br />
+    <br />
+    Check out my GitHub at <a href="https://github.com/TrevorAC99">TrevorAC99</a>.
+  </p>
+  <p>
+  </p>
 </div>
