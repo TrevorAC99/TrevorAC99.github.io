@@ -5,14 +5,12 @@ import { MaterialModule } from './shared/material.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainComponent } from './main/main.component';
-import { AboutComponent } from './main/about/about.component';
-import { HomeComponent } from './main/home/home.component';
+import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
     AboutComponent,
     HomeComponent
   ],
