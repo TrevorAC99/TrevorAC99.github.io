@@ -9,8 +9,7 @@ export class HomeComponent {
 
   public technologies: string[] = [
     'Rust',
-    'TypeScript',
-    'JavaScript',
+    'TypeScript/JavaScript',
     'Angular',
     'C#',
     'ASP.NET',
