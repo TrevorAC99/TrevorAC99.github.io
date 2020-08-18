@@ -1,7 +1,7 @@
 <div class="content__wrapper">
   <h1>About Me</h1>
   <p>
-    I'm a 3rd year student at the University of Wisconsin Oshkosh studying Computer Science with an emphasis in Systems and Theory.
+    I'm a 4th year student at the University of Wisconsin Oshkosh studying Computer Science with an emphasis in Systems and Theory.
     My expected graduation date is May of 2021.
     My interests are in operating systems and programming languages, which has led me to become very
     excited about <a href="https://www.rust-lang.org/">Rust</a> and the opportunities it offers for systems software.
@@ -10,7 +10,17 @@
   <p>
     I work for UWO's IT department as a web developer where I use ASP.NET MVC, SQL Server, and Angular JS.
     We are currently transitioning to ASP.NET Core with Entity Framework Core and Angular.
+    <mat-divider></mat-divider>
+    During the summer of 2020, I spent 9 working as a Software Developer Intern at Epic Systems in Verona, Wisconsin. Over the course
+    of the internship, I developed a Visual Studio Code extension that adds integration with an internal tool at Epic for writing TypeScript
+    code that can be transpiled into M code to run on Epic's database system. I used TypeScript and C# to make the extension. While working
+    on the extension, I became familiar with many areas of VSCode's extension API including but not limited to the following.
   </p>
+  <ul>
+    <li>File System Provider: Used to expose the contents of a remote server to VSCode.</li>
+    <li>Source Control API: Used to allow developers to push their changes to the remote server using an interface similar to VSCode's own Git integration.</li>
+    <li>Debugging API: Used to create facilities that allow developers to debug remote M processes while hitting breakpoints and seeing local variables in the source TypeScript files.</li>
+  </ul>
   <h1>Technologies I Use</h1>
   <div class="technologies">
     <mat-card *ngFor="let item of technologies" class="tech__item">

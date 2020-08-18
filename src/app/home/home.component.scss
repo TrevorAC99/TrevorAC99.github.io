@@ -12,9 +12,16 @@
   }
 
   p {
-    padding: 10px;
     align-self: center;
     line-height: 1.5;
+
+    .mat-divider {
+      margin: 10px;
+    }
+  }
+
+  ul {
+    align-self: center;
   }
 
   .technologies {
