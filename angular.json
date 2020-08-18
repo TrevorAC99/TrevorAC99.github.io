@@ -150,5 +150,8 @@
       }
     }
   },
-  "defaultProject": "TrevorAC99Pages"
+  "defaultProject": "TrevorAC99Pages",
+  "cli": {
+    "analytics": false
+  }
 }
