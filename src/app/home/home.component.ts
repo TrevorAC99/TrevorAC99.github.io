@@ -12,6 +12,7 @@ export class HomeComponent {
     'TypeScript/JavaScript',
     'Angular',
     'C#',
+    'F#',
     'ASP.NET',
     'Microsoft SQL Server',
     'MySQL',
