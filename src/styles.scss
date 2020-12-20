@@ -37,3 +37,24 @@ a:hover {
 a:active {
   color: red;
 }
+
+/*CSS Scrollbars (Firefox)*/
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ddd #666;
+}
+
+/*Webkit Scrollbars (Chrome, Edge, Safari)*/
+::-webkit-scrollbar {
+  width: 12px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: #666;
+  border-radius: 20px;
+}
