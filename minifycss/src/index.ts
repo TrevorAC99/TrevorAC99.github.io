@@ -1,10 +1,10 @@
-import * as querystring from 'querystring';
-import * as http from 'https';
 import * as fsPromises from 'fs/promises';
-import * as fs from 'fs';
+import CleanCSS from 'clean-css';
 
 const cssDir = './css';
 const outDir = './cssmin';
+
+let minifier = new CleanCSS({level: 2});
 
 async function main(): Promise<void> {
   let contents = await fsPromises.readdir(cssDir);
@@ -28,9 +28,9 @@ async function minifyIntoSeparateFiles(
   contents: string[]
 ): Promise<void> {
   await forEachAsync<string, void>(contents, async (file) => {
-    let contents = (await fsPromises.readFile(`${cssDir}/${file}`)).toString();
-    let minifiedContents = await minifyCSS(contents);
-    await fsPromises.writeFile(`${outDir}/${file}`, minifiedContents);
+    let css = (await fsPromises.readFile(`${cssDir}/${file}`)).toString();
+    let minifiedCss = minifier.minify(css).styles;
+    await fsPromises.writeFile(`${outDir}/${file}`, minifiedCss);
   });
 }
 
@@ -42,7 +42,7 @@ async function minifyAndBundle(
     contents,
     async (file) => {
       let css = (await fsPromises.readFile(`${cssDir}/${file}`)).toString();
-      let minifiedCss = await minifyCSS(css);
+      let minifiedCss = minifier.minify(css).styles;
       return [file, minifiedCss];
     }
   );
@@ -55,43 +55,6 @@ async function minifyAndBundle(
   }
 
   await fsPromises.writeFile(`${outDir}/bundle.css`, bundledCss);
-}
-
-function minifyCSS(css: string): Promise<string> {
-  return new Promise((resolve, reject) => {
-    let query = querystring.stringify({
-      input: css,
-    });
-
-    let req = http.request(
-      {
-        method: 'POST',
-        hostname: 'cssminifier.com',
-        path: '/raw',
-      },
-      async (resp) => {
-        if (resp.statusCode !== 200) {
-          reject('StatusCode=' + resp.statusCode);
-          return;
-        }
-
-        resolve(await streamToString(resp));
-      }
-    );
-    req.on('error', (err) => reject(err));
-    req.setHeader('Content-Type', 'application/x-www-form-urlencoded');
-    req.setHeader('Content-Length', query.length);
-    req.end(query, 'utf8');
-  });
-}
-
-function streamToString(stream: NodeJS.ReadableStream): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const chunks: Uint8Array[] = [];
-    stream.on('data', (chunk) => chunks.push(chunk));
-    stream.on('error', reject);
-    stream.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
-  });
 }
 
 async function forEachAsync<T, X>(

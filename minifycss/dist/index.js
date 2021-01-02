@@ -18,12 +18,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const querystring = __importStar(require("querystring"));
-const http = __importStar(require("https"));
 const fsPromises = __importStar(require("fs/promises"));
+const clean_css_1 = __importDefault(require("clean-css"));
 const cssDir = './css';
 const outDir = './cssmin';
+let minifier = new clean_css_1.default({ level: 2 });
 async function main() {
     let contents = await fsPromises.readdir(cssDir);
     await mkdirIfNotExist(outDir);
@@ -37,15 +40,15 @@ async function main() {
 }
 async function minifyIntoSeparateFiles(outDir, contents) {
     await forEachAsync(contents, async (file) => {
-        let contents = (await fsPromises.readFile(`${cssDir}/${file}`)).toString();
-        let minifiedContents = await minifyCSS(contents);
-        await fsPromises.writeFile(`${outDir}/${file}`, minifiedContents);
+        let css = (await fsPromises.readFile(`${cssDir}/${file}`)).toString();
+        let minifiedCss = minifier.minify(css).styles;
+        await fsPromises.writeFile(`${outDir}/${file}`, minifiedCss);
     });
 }
 async function minifyAndBundle(outDir, contents) {
     let min = await forEachAsync(contents, async (file) => {
         let css = (await fsPromises.readFile(`${cssDir}/${file}`)).toString();
-        let minifiedCss = await minifyCSS(css);
+        let minifiedCss = minifier.minify(css).styles;
         return [file, minifiedCss];
     });
     let bundledCss = '/* Bundled CSS - This file is generated css, do not edit */';
@@ -55,36 +58,6 @@ async function minifyAndBundle(outDir, contents) {
         bundledCss += `\n\n/* End minified ${fileName} */\n`;
     }
     await fsPromises.writeFile(`${outDir}/bundle.css`, bundledCss);
-}
-function minifyCSS(css) {
-    return new Promise((resolve, reject) => {
-        let query = querystring.stringify({
-            input: css,
-        });
-        let req = http.request({
-            method: 'POST',
-            hostname: 'cssminifier.com',
-            path: '/raw',
-        }, async (resp) => {
-            if (resp.statusCode !== 200) {
-                reject('StatusCode=' + resp.statusCode);
-                return;
-            }
-            resolve(await streamToString(resp));
-        });
-        req.on('error', (err) => reject(err));
-        req.setHeader('Content-Type', 'application/x-www-form-urlencoded');
-        req.setHeader('Content-Length', query.length);
-        req.end(query, 'utf8');
-    });
-}
-function streamToString(stream) {
-    return new Promise((resolve, reject) => {
-        const chunks = [];
-        stream.on('data', (chunk) => chunks.push(chunk));
-        stream.on('error', reject);
-        stream.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
-    });
 }
 async function forEachAsync(arr, asyncFn) {
     return Promise.all(arr.map(asyncFn));

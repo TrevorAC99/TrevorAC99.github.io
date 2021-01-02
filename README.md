@@ -8,7 +8,8 @@ files.
 
 ## CSS
 To make changes to the styling, edit the desired css file(s) and then run
-bundlecss (either the .bat or the .sh depending on your platform). This will
-generate the cssmin/bundle.css file. This currently uses the api provided by
-https://cssminifier.com/ though this should probably be changed in the future
-in case the website ever goes down.
+bundlecss (either the .bat or the .sh depending on your platform).
+This will generate the cssmin/bundle.css file.
+Yes, I wrote my own CSS bundler.
+Yes, there are probably much better solutions.
+Get over it. It works.
