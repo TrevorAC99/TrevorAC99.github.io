@@ -1,5 +1,5 @@
 # TrevorAC99.github.io
-This is my personal website, currently hosted at [https://www.trevorac99.dev](https://www.about.tcarlson.dev)
+This is my personal website, currently hosted at [https://www.about.tcarlson.dev](https://www.about.tcarlson.dev)
 
 # Making Changes
 ## HTML
