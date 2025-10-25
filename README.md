@@ -3,7 +3,7 @@ This is my personal website, currently hosted at [https://www.about.tcarlson.dev
 
 # Making Changes
 ## HTML
-Changes to html require no additional work beyond modified the appropriate
+Changes to html require no additional work beyond modifying the appropriate
 files.
 
 ## CSS
@@ -12,4 +12,3 @@ bundlecss (either the .bat or the .sh depending on your platform).
 This will generate the cssmin/bundle.css file.
 Yes, I wrote my own CSS bundler.
 Yes, there are probably much better solutions.
-Get over it. It works.
